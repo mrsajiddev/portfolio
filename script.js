@@ -10,6 +10,8 @@ menuBtn.addEventListener("click", () => {
 
     navLinks.classList.toggle("active");
 
+    menuBtn.setAttribute("aria-expanded", navLinks.classList.contains("active"));
+
     menuBtn.innerHTML = navLinks.classList.contains("active")
         ? '<i class="fa-solid fa-xmark"></i>'
         : '<i class="fa-solid fa-bars"></i>';
@@ -70,7 +72,7 @@ window.addEventListener("scroll", () => {
 
         const sectionHeight = section.clientHeight;
 
-        if (pageYOffset >= sectionTop) {
+        if (window.scrollY >= sectionTop) {
 
             current = section.getAttribute("id");
 
@@ -108,9 +110,9 @@ const professions = [
 
     "React & Next.js Developer",
 
-    "Shopify Developer",
+    "Node.js Developer",
 
-    "Node.js Developer"
+    "AI Integration Engineer"
 
 ];
 
@@ -372,6 +374,45 @@ document.querySelectorAll(".btn").forEach(button => {
     });
 
 });
+
+/* =====================================================
+   CONTACT FORM (opens the visitor's email app, works on GitHub Pages)
+===================================================== */
+
+const contactForm = document.getElementById("contactForm");
+const formStatus = document.getElementById("formStatus");
+
+if (contactForm) {
+
+    contactForm.addEventListener("submit", (e) => {
+
+        e.preventDefault();
+
+        const data = new FormData(contactForm);
+        const name = (data.get("name") || "").trim();
+        const email = (data.get("email") || "").trim();
+        const subject = (data.get("subject") || "").trim() || "Portfolio enquiry";
+        const message = (data.get("message") || "").trim();
+
+        if (!name || !email || !message || !/^\S+@\S+\.\S+$/.test(email)) {
+
+            formStatus.textContent = "Please add your name, a valid email and a message.";
+            formStatus.classList.add("error");
+            return;
+
+        }
+
+        formStatus.classList.remove("error");
+        formStatus.textContent = "Opening your email app...";
+
+        const body = `${message}\n\n${name}\n${email}`;
+
+        window.location.href =
+            `mailto:mr.sajidbwn@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    });
+
+}
 
 /* =====================================================
    PRELOADER (OPTIONAL)
