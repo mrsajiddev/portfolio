@@ -112,7 +112,9 @@ const professions = [
 
     "Node.js Developer",
 
-    "AI Integration Engineer"
+    "AI Integration Engineer",
+
+    "LLM & RAG Developer"
 
 ];
 
@@ -259,7 +261,7 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 document.querySelectorAll(
-    ".section-header, .timeline-item, .project-card, .service-card, .skill-category, .info-card, .stat-card, .contact-wrapper"
+    ".section-header, .timeline-item, .project-card, .service-card, .workflow-step, .skill-category, .info-card, .stat-card, .contact-wrapper"
 ).forEach(el => {
 
     el.classList.add("fade-up");
