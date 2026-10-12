@@ -14,7 +14,7 @@ This repository contains the source code for my personal portfolio website, show
 
 **Live Website**
 
-https://mrsajiddev.github.io/
+https://mrsajiddev.github.io/portfolio
 
 ---
 
