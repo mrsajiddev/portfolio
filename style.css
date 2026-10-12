@@ -2633,3 +2633,28 @@ textarea:focus-visible {
         justify-content: center;
     }
 }
+
+
+/* =====================================================
+   PROJECT SCREENSHOTS (shown when the image file exists)
+===================================================== */
+
+.project-thumb .project-shot {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    z-index: 2;
+    transition: transform .6s ease;
+}
+
+.project-card:hover .project-shot {
+    transform: scale(1.05);
+}
+
+.project-image::after {
+    z-index: 3;
+    pointer-events: none;
+}
